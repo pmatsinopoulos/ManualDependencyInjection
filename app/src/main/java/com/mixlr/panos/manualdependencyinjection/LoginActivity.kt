@@ -16,6 +16,6 @@ class LoginActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         val appContainer = MyApplication().appContainer
-        loginViewModel = LoginViewModel(appContainer.userRepository)
+        loginViewModel = appContainer.loginViewModelFactory.create()
     }
 }
