@@ -15,10 +15,7 @@ class LoginActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val retrofitService = LoginRetrofitService()
-        val remoteDataSource = UserRemoteDataSource(retrofitService)
-        val localDatSource = UserLocalDataSource()
-        val userRepository = UserRepository(localDatSource, remoteDataSource)
-        loginViewModel = LoginViewModel(userRepository)
+        val appContainer = MyApplication().appContainer
+        loginViewModel = LoginViewModel(appContainer.userRepository)
     }
 }
